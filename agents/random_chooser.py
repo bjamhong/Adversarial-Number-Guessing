@@ -6,8 +6,8 @@ class RandomChooserAgent:
     def __init__(self, args: dict = {}, model: str = "gpt-4o-mini"):
         self.model = ChatGPTClient(model=model)
 
-    def choose_number(self):
-        response = self.model.query(
+    async def choose_number(self):
+        response = await self.model.query(
             messages=[
                 {"role": "user", "content": user_prompt.format()}
             ],

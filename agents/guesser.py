@@ -6,8 +6,8 @@ class GuesserAgent:
     def __init__(self, args: dict = {}, model: str = "gpt-4o-mini"):
         self.model = ChatGPTClient(model=model)
 
-    def guess_number(self):
-        response = self.model.query(
+    async def guess_number(self):
+        response = await self.model.query(
             messages=[
                 {"role": "system", "content": system_prompt.format(num_choices=self.num_choices)},
                 {"role": "user", "content": user_prompt.format(num_choices=self.num_choices)}
