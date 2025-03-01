@@ -5,6 +5,7 @@ from schemas.agents import NumberChoicesResponse
 class GuesserAgent:
     def __init__(self, args: dict = {}, model: str = "gpt-4o-mini"):
         self.model = ChatGPTClient(model=model)
+        self.num_choices = args["num_choices"]
 
     async def guess_number(self):
         response = await self.model.query(
